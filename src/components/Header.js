@@ -2,7 +2,7 @@ import './../styles/Header.css'
 import { Search } from "@mui/icons-material";
 import { Home } from "@mui/icons-material";
 import { useParams } from "react-router";
-// import { Link } from react-router-dom;
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const params = useParams()
@@ -14,7 +14,7 @@ const Header = () => {
                 <input type="text" placeholder="Search" />
             </span>
             <span className="home_icon">
-                 <Home />
+                <Link to="/"> <Home /> </Link>
             </span>
             
         </header>
