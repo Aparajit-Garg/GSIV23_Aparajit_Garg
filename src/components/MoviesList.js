@@ -10,12 +10,12 @@ const MoviesList = () => {
     const dispatch = useDispatch()
     const movies = useSelector(state => state.movies.movies)
     const IMAGE_PATH="https://image.tmdb.org/t/p/original/";
-    
+
     const fetchData = async () => {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${count}`)
+        // fetching upcoming movies sorted by latest first considering 20 August 2023 as the starting date
+        const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&include_adult=false&include_video=false&language=en-US&page=${count}&primary_release_date.gte=2023-08-20&sort_by=primary_release_date.asc`)
         const data = await response.json()
         setTotalPages(data.total_pages)
-        console.log(data)
         dispatch(updateMovieList(data.results))
     }
 
