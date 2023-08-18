@@ -4,6 +4,7 @@ import classes from "../styles/MovieDetails.module.css"
 
 const MovieDetails = () => {
     const API_KEY = process.env.REACT_APP_API_KEY
+    // if there are more api calls, this can be moved to constants.js
     const FETCH_URL = 'https://api.themoviedb.org/3/movie/'
     const IMAGE_PATH="https://image.tmdb.org/t/p/original/";
     const movieId = useParams().id
@@ -48,7 +49,7 @@ const MovieDetails = () => {
                     <span> Cast: </span>
                     {cast?.cast?.map((value, index) => {
                         return (
-                            index > 4 ? '' : index === 4 ? '...' : value.name + ', '
+                            value.name + ', '
                         )
                     })}
                 </span>
