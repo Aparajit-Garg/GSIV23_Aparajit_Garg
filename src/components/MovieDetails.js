@@ -40,7 +40,7 @@ const MovieDetails = () => {
                 </span>
                 <span className={classes.year_length_director}>
                     <span> {movieDetail?.release_date.split('-')[0]} | </span>
-                    <span> {movieDetail?.runtime} minutes | </span>
+                    <span> {movieDetail?.runtime < 60 ? movieDetail?.runtime + ' minutes' : Math.floor(movieDetail?.runtime/60) + ' hrs ' + movieDetail?.runtime%60 + ' minutes'} | </span>
                     <span>
                         {cast?.crew?.map(value => value.job.toLowerCase() === 'director' ? value.name : '')}
                     </span> 
