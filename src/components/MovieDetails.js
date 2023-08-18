@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { updateMovieDetail, updateCastDetail } from '../storeSlices/movieDetailSlice';
 import classes from "../styles/MovieDetails.module.css"
 
 const MovieDetails = () => {
@@ -10,24 +13,43 @@ const MovieDetails = () => {
     const movieId = useParams().id
     const [cast, setCast] = useState([])
     const [movieDetail, setMovieDetail] = useState()
+    const movieDetailsFetched = useSelector(state => state.movieDetail.movieDetail)
+    const castDetailsFetched = useSelector(state => state.movieDetail.castDetail)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         const fetchMovieDetails = async() => {
-            const response = await fetch(`${FETCH_URL}${movieId}?api_key=${API_KEY}`);
-            const data = await response.json();
-            console.log(data);
-            setMovieDetail(data)
+            try {
+                const response = await fetch(`${FETCH_URL}${movieId}?api_key=${API_KEY}`);
+                const data = await response.json();
+                console.log(data);
+                setMovieDetail(data)
+                dispatch(updateMovieDetail({payload: data, movieId: movieId}))
+            } catch (error) {
+                console.log("Error at fetching movie details: ", error)
+            }
         }
         const fetchCastDetails=async()=>{
-            const response = await fetch(`${FETCH_URL}${movieId}/credits?api_key=${API_KEY}`);
-            const cast_data = await response.json();
-        
-            console.log(cast_data)
-            setCast(cast_data)
+            try {
+                const response = await fetch(`${FETCH_URL}${movieId}/credits?api_key=${API_KEY}`);
+                const cast_data = await response.json();
+            
+                console.log(cast_data)
+                setCast(cast_data)
+                dispatch(updateCastDetail({payload: cast_data, movieId: movieId}))
+            } catch (error) {
+                console.log("Error fetching cast details: ", error)
+            }
       }
 
-      fetchMovieDetails()
-      fetchCastDetails()
+      if (movieId in movieDetailsFetched) {
+        setMovieDetail(movieDetailsFetched[movieId]);
+        setCast(castDetailsFetched[movieId])
+      } else {
+        console.log('movie details fetched: ', movieDetailsFetched)
+        fetchMovieDetails()
+        fetchCastDetails()
+      }
       
     }, [])
     return (

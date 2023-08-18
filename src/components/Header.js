@@ -1,8 +1,7 @@
 import classes from './../styles/Header.module.css'
 import { Search } from "@mui/icons-material";
 import { Home } from "@mui/icons-material";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { updateSearchedMovieList } from '../storeSlices/movieListSlice';
 import { useDispatch } from 'react-redux';
@@ -18,10 +17,14 @@ const Header = () => {
 
     useEffect(() => {
         const timer = setTimeout(async () => {
-            const response = await fetch(`${FETCH_URL}search/movie?&query=${searchValue}&api_key=${process.env.REACT_APP_API_KEY}`)
-            const data = await response.json()
-            console.log(data)
-            dispatch(updateSearchedMovieList(data))
+            try {
+                const response = await fetch(`${FETCH_URL}search/movie?&query=${searchValue}&api_key=${process.env.REACT_APP_API_KEY}`)
+                const data = await response.json()
+                console.log(data)
+                dispatch(updateSearchedMovieList(data))
+            } catch (error) {
+                console.log("Error fetching search query: ", error)
+            }
         }, 500)
 
         return (() => clearTimeout(timer))
