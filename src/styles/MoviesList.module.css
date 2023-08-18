@@ -1,10 +1,16 @@
-section {
+
+.movies_list_section {
+    width: 100%;
+    height: 100%;
     margin-top: 0.5rem;
     padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .movies_list {
     display: flex;
+    flex-direction: row;
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
@@ -14,7 +20,7 @@ section {
     text-decoration: none;
     color: black;
     width: 18%;
-    height: 27rem;
+    height: 25rem;
     position: relative;
     border-radius: 5px;
 }
@@ -28,6 +34,7 @@ section {
     height: 25rem; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-size: 0.8em;
+    min-width: 200px;
 }
 
 .movie_tile > div > img {
@@ -40,7 +47,7 @@ section {
 .movie_description {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0 0.5rem;
@@ -50,7 +57,16 @@ section {
     width: 100%;
     padding: 0.5rem;
     display: flex;
+    gap: 0.2rem;
     justify-content: space-between;
+}
+
+.movie_name > h4 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .pagination {
@@ -59,6 +75,7 @@ section {
     gap: 0.5rem;
     justify-content: center;
     margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .pagination > li > button {

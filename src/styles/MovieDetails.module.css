@@ -1,0 +1,30 @@
+
+.movie_details {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+.movie_details > img {
+    width: 16rem;
+    height: 15rem;
+}
+
+.movie_details > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0.7;
+}
+
+.title_rating {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.vote {
+    color: var(--color-light-gray);
+}
