@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-green: #34A853;
+    --color-amber: #FBBC04;
+    --color-red: #CE3721;
+    --color-blue: #4285F4;
+    --color-orange: #F25C00;
+    --color-orchid: #AC69B0;
+    --color-gray: #4A4A4A;
+    --color-light-gray: #9B9B9B;
+    --color-disabled: #DFDFDF;
+}

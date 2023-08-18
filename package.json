@@ -1,0 +1,28 @@
+{
+  "name": "gsiv23_aparajit_garg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aparajit-Garg/GSIV23_Aparajit_Garg.git"
+  },
+  "author": "Aparajit Garg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aparajit-Garg/GSIV23_Aparajit_Garg/issues"
+  },
+  "homepage": "https://github.com/Aparajit-Garg/GSIV23_Aparajit_Garg#readme",
+  "dependencies": {
+    "@mui/icons-material": "^5.14.3",
+    "@reduxjs/toolkit": "^1.9.5",
+    "parcel": "^2.9.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.2",
+    "react-router": "^6.15.0"
+  }
+}
