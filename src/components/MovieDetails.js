@@ -18,23 +18,23 @@ const MovieDetails = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        const fetchMovieDetails = async() => {
+        const fetchMovieDetails = async () => {
             try {
                 const response = await fetch(`${FETCH_URL}${movieId}?api_key=${API_KEY}`);
                 const data = await response.json();
-                console.log(data);
+                // console.log(data);
                 setMovieDetail(data)
                 dispatch(updateMovieDetail({payload: data, movieId: movieId}))
             } catch (error) {
                 console.log("Error at fetching movie details: ", error)
             }
         }
-        const fetchCastDetails=async()=>{
+        const fetchCastDetails = async () => {
             try {
                 const response = await fetch(`${FETCH_URL}${movieId}/credits?api_key=${API_KEY}`);
                 const cast_data = await response.json();
             
-                console.log(cast_data)
+                // console.log(cast_data)
                 setCast(cast_data)
                 dispatch(updateCastDetail({payload: cast_data, movieId: movieId}))
             } catch (error) {
@@ -69,11 +69,13 @@ const MovieDetails = () => {
                 </span>
                 <span className={classes.cast}>
                     <span> Cast: </span>
-                    {cast?.cast?.map((value, index) => {
-                        return (
-                            value.name + ', '
-                        )
-                    })}
+                    <span>
+                        {cast?.cast?.map((value, index) => {
+                            return (
+                                value.name + ', '
+                            )
+                        })}
+                    </span>
                 </span>
                 <span className={classes.overview}> Description: {movieDetail?.overview} </span>
             </div>
