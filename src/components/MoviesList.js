@@ -16,7 +16,7 @@ const MoviesList = () => {
     const fetchData = async () => {
         try {
             // fetching upcoming movies sorted by latest first considering 20 August 2023 as the starting date
-            const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&include_adult=false&include_video=false&language=en-US&page=${count}&primary_release_date.gte=2023-08-20&sort_by=primary_release_date.asc`)
+            const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&include_adult=false&include_video=false&language=en-US&page=${count}&primary_release_date.gte=2023-08-25&sort_by=primary_release_date.asc`)
             const data = await response.json()
             setTotalPages(data.total_pages)
             // update the results fetched into the redux state
