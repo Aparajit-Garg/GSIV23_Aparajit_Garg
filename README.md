@@ -1,6 +1,6 @@
 # GSIV23_Aparajit_Garg
 
-Deployed website: https://movie-recommendation-a4fd3.web.app/
+Deployed website: https://movie-recommendation-a4fd3.web.app
 
 Instructions to run the code:
 1) Clone the repo: git clone https://github.com/Aparajit-Garg/GSIV23_Aparajit_Garg.git
@@ -20,5 +20,7 @@ at elemental level providing easier debugging and maintenance of the code
 5) Routing: For routing implementation, I have used react-router-dom
 6) Testing: Unit test cases are also implemented for Movie Detail page asserting the
             rendering of all the details
-7) Code Splitting: Implemented code splitting to Movie detail page.
+7) Code Splitting: Implemented code splitting to Movie detail page can be found on
+                   github repo but not kept in the build as the build size increased
+                   and performace deteriorated
 8) Extra features: Implemented debouncing in the search box
