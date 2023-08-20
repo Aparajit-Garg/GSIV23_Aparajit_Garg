@@ -1,9 +1,8 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client"
 import Header from "./src/components/Header";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import MoviesList from "./src/components/MoviesList";
-import MovieDetails from "./src/components/MovieDetails";
 import store from "./src/store";
 import { Provider } from "react-redux";
 
@@ -16,6 +15,8 @@ const App = () => {
     )
 }
 
+const MovieDetails = lazy(() => import("./src/components/MovieDetails"))
+
 const appRouter = createBrowserRouter([
     {
         path: "/",
@@ -27,7 +28,11 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/detail/:id",
-                element: <MovieDetails />
+                element: (
+                    <Suspense fallback={<h1> Loading... </h1>}>
+                        <MovieDetails />
+                    </Suspense>
+                )
             }
         ]
     }

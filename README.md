@@ -20,7 +20,5 @@ at elemental level providing easier debugging and maintenance of the code
 5) Routing: For routing implementation, I have used react-router-dom
 6) Testing: Unit test cases are also implemented for Movie Detail page asserting the
             rendering of all the details
-7) Extra features: Implemented debouncing in the search box
-
-Feedback:
-1) May be more number of pages can be given to test code splitting.
+7) Code Splitting: Implemented code splitting to Movie detail page.
+8) Extra features: Implemented debouncing in the search box
