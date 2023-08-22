@@ -23,4 +23,6 @@ at elemental level providing easier debugging and maintenance of the code
 7) Code Splitting: Implemented code splitting to Movie detail page can be found on
                    github repo but not kept in the build as the build size increased
                    and performace deteriorated
-8) Extra features: Implemented debouncing in the search box
+8) Extra features: 
+    a) Implemented debouncing in the search box
+    b) Integrated caching for search box
